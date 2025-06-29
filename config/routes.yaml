@@ -1,0 +1,8 @@
+reset_password:
+    path: /reset-password
+    controller: App\Controller\YourController::resetPasswordAction
+
+
+
+
+

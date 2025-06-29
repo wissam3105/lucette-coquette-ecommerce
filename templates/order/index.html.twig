@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Valider ma commandes!{% endblock %}
+
+{% block body %}
+<style>
+  .form-check {
+        background-color: #f4f8ff;
+        padding: 20px 65px;
+        margin-top: 7px;
+    }
+    .col-form-label {
+        font-weight:bold;
+    }
+    .order-summary{
+       background-color: #f4f8ff;
+       padding-left: 20px;  
+        margin-top: 22px;
+    }
+</style>
+<br>
+<h4>je passe ma commande</h4>
+
+<hr>
+<div class= "row">
+   <div class="col-md-6">
+   
+   {% set formHtml %}
+   
+   {{form_start (form,{action:path ('paiement')} )}}
+   {{form_end (form)}}
+   {% endset %}
+    {{ formHtml|replace({'[br]': '</br>'})| raw }}
+
+   <b>choisir le transporteur</b>
+   </div>
+   <div class="col-md-6">
+   <div class="order-summary">
+  
+   <b>Recapitulatif de ma commande</b></br> <br>
+   
+       <table>
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Titre</th>
+            <th>Prix unitaire</th>
+            <th>Quantité</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart %}
+        
+            <tr>
+                <td><img src="/assets/produits/{{ item.article.image }}" height="75px"></td>
+                <td>{{ item.article.title }}</td>
+                <td>{{ item.article.prix }}</td>
+                <td>{{ item.quantite }}</td>
+                <td>{{ item.article.prix * item.quantite }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<br>
+<hr>
+   </div>
+
+</div>
+</div>
+
+{% endblock %}
