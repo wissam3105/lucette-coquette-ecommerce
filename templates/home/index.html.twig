@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+{% block carousel %} {% endblock %}
+ {% block content %} 
+
+        <div class="row">
+            {% for article in articles %}
+            <div class="col-lg-4">
+                <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="/assets/produits/{{ article.image }}">
+                <h2>{{ article.title }}</h2>
+                <p>{{ article.content }}</p>
+            </div>
+        {% endfor %}
+        </div>
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+            
+                <h2 class="featurette-heading">Nos Produits </h2>
+                <p class="lead">La qualité des matières premières et la fabrication à la main font des savons saponifiés à froid un produit de luxe.</p>
+            </div>
+            <div class="col-md-5">
+               <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="/assets/savon-naturel.jpg" alt="">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">QUI Somme Nous?. </h2>
+                <p class="lead">Née d'une rencontre professionnelle et d'un toc pour le savon, V&P se sont réunies afin de valoriser l'artisanat français et plus particulièrement normand d’où elles sont originaires.
+
+V&P vous proposent leurs sélections pour être belle au naturelle, sans oublier notre collection homme.
+
+Contact mail : savon-lucetteestcoquette@orange.fr</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+               <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="/assets/nous.jpg" alt="">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <p><a class="btn btn-lg btn-primary" href="{{path('app_contact')}}" role="button">Contactez-Nous</a></p> 
+                 
+
+
+
+ <h3>Les horaires d'ouverture  </h3>
+  <p class="lead">Horaires d'hiver 10h00-13h // 14h30-18h30 sauf le lundi et mardi à Cabourg
+                                Horaires d'été 10h00-13h et 14h30- 19h00 sauf le lundi à Cabourg .</p>
+            </div>
+            <div class="col-md-5">
+                <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="/assets/logo.png" alt="">
+            </div>
+        </div>
+
+    {% endblock %}

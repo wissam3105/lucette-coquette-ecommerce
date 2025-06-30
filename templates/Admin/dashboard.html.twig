@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="mb-4">Bienvenue dans le tableau de bord 🚀</h1>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-header">Utilisateurs</div>
+                <div class="card-body">
+                    <h5 class="card-title">Gérez les utilisateurs</h5>
+                    <a href="{{ ea_url().setController('App\\Controller\\Admin\\UserCrudController') }}" class="btn btn-light btn-sm">Voir</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-header">Produits</div>
+                <div class="card-body">
+                    <h5 class="card-title">Voir la liste des produits</h5>
+                    <a href="{{ ea_url().setController('App\\Controller\\Admin\\ArticleCrudController') }}" class="btn btn-light btn-sm">Voir</a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-header">Catégories</div>
+                <div class="card-body">
+                    <h5 class="card-title">Organisez les catégories</h5>
+                     <a href="{{ ea_url().setController('App\\Controller\\Admin\\CategorieCrudController') }}" class="btn btn-light btn-sm">Voir</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-danger mb-3">
+                <div class="card-header">Transporteurs</div>
+                <div class="card-body">
+                    <h5 class="card-title">Suivi & gestion</h5>
+                    <a href="{{ ea_url().setController('App\\Controller\\Admin\\CarrierCrudController') }}" class="btn btn-light btn-sm">Voir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

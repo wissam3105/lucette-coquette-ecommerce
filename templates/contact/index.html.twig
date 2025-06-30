@@ -1,0 +1,206 @@
+{% block stylesheets %}
+
+<style>
+
+    body {
+
+        font-family: 'Arial', sans-serif;
+
+        background-color: #f4f4f4;
+
+    }
+
+    
+
+    h1 {
+
+        text-align: center;
+
+        color: #333;
+
+        margin-top: 40px;
+
+    }
+
+ 
+
+    .form-container {
+
+        max-width: 600px;
+
+        margin: 30px auto;
+
+        padding: 20px;
+
+        background-color: #fff;
+
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        border-radius: 8px;
+
+    }
+
+ 
+
+    label {
+
+        display: block;
+
+        margin-bottom: 10px;
+
+        color: #555;
+
+        font-weight: bold;
+
+    }
+
+ 
+
+    input[type="text"], input[type="email"], textarea, select {
+
+        width: 100%;
+
+        padding: 10px;
+
+        margin-bottom: 20px;
+
+        border: 1px solid #ccc;
+
+        border-radius: 4px;
+
+    }
+
+ 
+
+    button[type="submit"] {
+
+        padding: 10px 15px;
+
+        background-color: #00A97F;
+
+        color: #fff;
+
+        border: none;
+
+        border-radius: 4px;
+
+        cursor: pointer;
+
+        transition: background-color 0.3s ease;
+
+    }
+
+ 
+
+    button[type="submit"]:hover {
+
+        background-color: #008a65;
+
+    }
+
+    .success-message {
+
+        display: none;
+
+        text-align: center;
+
+        padding: 10px;
+
+        margin: 20px 0;
+
+        background-color: #e7f8f2;
+
+        color: #00A97F;
+
+        border: 1px solid #b2ecd8;
+
+        border-radius: 5px;
+
+    }
+    
+
+    .alert {
+
+    position: fixed;
+
+    top: 20px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 1000;
+
+    padding: 15px;
+
+    border-radius: 5px;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+    animation: fadeInOut 4s forwards;
+
+}
+
+ 
+
+@keyframes fadeInOut {
+
+    0% {
+
+        opacity: 1;
+
+    }
+
+    75% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+    }
+
+}
+
+ 
+
+</style>
+
+{% endblock %}
+
+ 
+
+{% block body %}
+
+{% for message in app.flashes('success') %}
+
+    <div class="alert alert-success">
+
+        {{ message }}
+
+    </div>
+
+{% endfor %}
+
+ 
+
+<h1>Nous contacter</h1>
+<button>
+
+</button>
+<div class="form-container">
+<a  href="{{path('home')}}"  class="return-button">Retour à la page d'accueil</a> <hr>
+    {{ form(formulaire) }}
+
+</div>
+
+ 
+
+ 
+
+{% endblock %}
+
+ 
