@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="row">
+  <div class="col-lg-3"> <br><br>
+      <h3>Filtrer</h3>
+         {{form(form)}}
+       
+
+
+  </div>
+
+  <div class="col-lg-9">
+  <br> <br>
+     <h3>Nos Produits</h3>
+     <section>
+    <div class="container">
+        <articles class="col-lg-12">
+            <article class="row">
+            {% for article in articles %}
+                <div class="col-lg-3">
+                    <div class="row mt-5">
+                        <div class="col-lg-12">
+                            <img width="150px" height="150px" src="{{ asset('assets/' ~ article.image) }}" alt="{{ article.title }}">
+
+                        </div>
+                        <div class="col-lg-4" style="width: 100%; height: auto;">
+
+                            <h4>{{ article.title }}</h4>
+                        </div>
+                        <div class="col-lg-12">
+                            <p>{{ article.content }}</p>
+                        </div>
+                        <div class="col-lg-12">
+                            <h1>{{ article.prix }} €</h1>
+                        </div>
+                        <div class="col-lg-12">
+                            <a class="btn btn-success" href="{{ path('panier_add', {'id': article.id })}}">Ajouter au panier</a>
+                        </div>
+                    </div>
+                </div>
+                           {% endfor %}
+            </article>
+        </articles>
+    </div>
+</section>
+  </div>
+
+
+
+ 
+    
+{% endblock %}

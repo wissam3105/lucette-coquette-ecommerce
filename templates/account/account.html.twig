@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte!{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<div class="row justify-content-center">
+            <div class="col-md-3">
+                
+ <h1>Bienvenue, {{ app.user.firstname }}!</h1>
+ <br> <br> <br> <hr>
+ 
+                 
+
+
+
+ <h4>Configurez Votre Compte,{{ app.user.firstname }}! </h4> <br> <br>
+  <h5> <a href="{{ path('adresse') }}">-Gérer mes adresses </a></h5>
+  <br> <br>
+   <h5> <a href="{{ path('account_password') }}">-Modifier le mot de passe</a></h5>
+            </div>
+            <div class="col-md-5">
+                <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="/assets/logo.png" alt="">
+            </div>
+                                    
+
+        </div>
+
+   </div>
+{% endblock %}
+
+
+
+
+
+
+
+

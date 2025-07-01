@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PanierController!{% endblock %}
+
+{% block body %}
+{% if panier | length > 0 %}
+<div class="container mt-5">
+    <h1>Panier</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Article</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for art in panier %}
+                <tr>
+                    <td><img src="/assets/produits/{{ art.article.image }}" height="75px"></td>
+                    <td>{{art.article.title}}</td>
+                   <td>{{art.quantite}}</td>
+                   
+                   <td>{{ art.article.prix }} €</td>
+                   <td>{{ art.article.prix * art.quantite }} €</td>
+                    <td>
+                        <a class="btn btn-danger" href="{{ path('panier_delete', {'id' : art.article.id }) }}">supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>total :</td>
+                <td></td>
+                <td></td>
+                <td>{{total}}</td>
+                <td>
+                    {% if panier | length > 0 %}
+                        <a class="btn btn-danger" style='background-color: green;color: white;' href="{{ path('order') }}">Valider la commande</a>
+                    {% else %}
+                        <!-- You can show a disabled button or a message here if the cart is empty -->
+                    {% endif %}
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+{% else %} 
+<p>votre panier est vide !</p> 
+{% endif %}
+{% endblock %}
+

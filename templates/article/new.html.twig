@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}ajouter un titre{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+<h3>Ajouter une Article</h3>
+{{ form_start(form) }}
+    <div class="form-group">
+        {{ form_label (form.title) }}
+        {{ form_widget (form.title) }}
+    </div>
+    <div class="form-group">
+        {{ form_label (form.content) }}
+        {{ form_widget (form.content) }}
+    </div>
+    <div class="form-group">
+        {{ form_label (form.prix) }}
+        {{ form_widget (form.prix) }}
+    </div>
+    <div class="form-group">
+        {{ form_label (form.image) }}
+        {{ form_widget (form.image) }}
+    </div>
+    <div class="form-group">
+        {{ form_label (form.categorie) }}
+        {{ form_widget (form.categorie) }}
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</div>
+{{ form_end(form) }}
+{% endblock %}

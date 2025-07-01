@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Paiement</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<style>
+/* Réinitialisation des styles par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top:100px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card-image {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+form {
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.expiration-cvv {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+</style>
+
+    <div class="container">
+            <a  href="{{path('home')}}"  class="return-button">Retour à la page d'accueil</a>
+
+        <h1>Formulaire de Paiement</h1>
+        <img src="/assets/paiement.png"  alt="" class="card-image">
+        <form>
+            <label for="nom">Nom sur la carte:</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="numero">Numéro de carte de crédit:</label>
+            <input type="text" id="numero" name="numero" required>
+
+            <div class="expiration-cvv">
+                <div>
+                    <label for="expiration">Date d'expiration:</label>
+                    <input type="text" id="expiration" name="expiration" placeholder="MM/YY" required>
+                </div>
+                <div>
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" required>
+                </div>
+            </div>
+
+            <button type="submit">Payer</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
