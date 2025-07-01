@@ -1,0 +1,43 @@
+name: Run Symfony PHPUnit Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: home
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: mbstring, intl, pdo_mysql
+
+      - run: composer install --prefer-dist --no-progress --no-suggest
+
+      - run: sleep 15
+
+      - run: echo "APP_ENV=test" >> $GITHUB_ENV
+
+      - run: php bin/console doctrine:migrations:migrate --no-interaction
+
+      - run: ./vendor/bin/phpunit
